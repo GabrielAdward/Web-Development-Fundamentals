@@ -593,5 +593,6 @@ width: 50px;
 
 .error{
   text-align: center;
-
+  margin-right: 10px;
+  margin-top: 10px;
 }
