@@ -34,18 +34,22 @@ router.post("/create-question", function (request, response) {
   const errorMessages = [];
 
 
- 
-if (qgrade < 0 || qgrade == "" || qName == "" || qemail == ""){
-  errorMessages.push("Check so no fields are empty");
-}
-if(QUESTION_NAME_MAX_LENGTH < qName.length){
-  errorMessages.push("Name may be at most "+ QUESTION_NAME_MAX_LENGTH +" characters long")
 
+if(qName == ""){
+  errorMessages.push("Name can't be empty");
+}else if(QUESTION_NAME_MAX_LENGTH < qName.length){
+  errorMessages.push("Name may be at most "+ QUESTION_NAME_MAX_LENGTH +" characters long")
 }
-if(QUESTION_EMAIL_MAX_LENGTH < qemail.length){
+
+if(qemail == ""){
+  errorMessages.push("Name can't be empty");
+}else if(QUESTION_EMAIL_MAX_LENGTH < qemail.length){
   errorMessages.push("Email may be at most "+ QUESTION_EMAIL_MAX_LENGTH +" characters long")
 }
-if(QUESTION_TITLE_MAX_LENGTH < qtitle.length){
+
+if(qtitle == ""){
+  errorMessages.push("Name can't be empty");
+}else if(QUESTION_TITLE_MAX_LENGTH < qtitle.length){
   errorMessages.push("Title may be at most "+ QUESTION_TITLE_MAX_LENGTH +" characters long")
 
 }
