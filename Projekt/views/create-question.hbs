@@ -1,12 +1,14 @@
+
+
+
 {{#if errorMessages.length}}
-	<p>Couldn't create the post because:</p>
+	<p class="error">Couldn't create the post because:</p>
 	<ul>
 		{{#each errorMessages}}
-			<li>{{this}}</li>
+			<li class="error">{{this}}</li>
 		{{/each}}
 	</ul>
 {{/if}}
-
 
 
 
