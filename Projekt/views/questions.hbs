@@ -5,35 +5,37 @@
 {{#if dbError}}
 	<p class="error">Can't display</p>
 {{else}}
+	
+{{#if questions.length}}
+	{{#each questions}}
 	<div class="wrap">
 		<div class="login-form">
 			<div class="form-header">
      		 <h3>Question </h3>
     	</div>
-{{#if questions.length}}
-	{{#each questions}}
-		<div class="form-group">
-			<h2><a href="/questions/{{questionid}}">{{name}}</a></h2>
-		</div>
-		<div class="form-group">
-			<p> {{email}}</p>
-		</div>
-		<div class="form-group">
-			<p>{{websiteGRADE}}</p>
-		</div>
-		<div class="form-group">
-			<p>{{questionTITLE}}</p>
-		</div>
-		{{#each answers}}
 			<div class="form-group">
-		{{#if isLoggedIn}}
-		{{/if}}
-		{{/each}}
-			<p><a href="/questions/add-answer/{{questionid}}">Add Answer</a></p>
+				<h2><a href="/questions/{{questionid}}">{{name}}</a></h2>
+			</div>
+			<div class="form-group">
+				<p> {{email}}</p>
+			</div>
+			<div class="form-group">
+				<p>{{websiteGRADE}}</p>
+			</div>
+			<div class="form-group">
+				<p>{{questionTITLE}}</p>
+			</div>
+			{{#each answers}}
+				<div class="form-group">
+			{{#if isLoggedIn}}
+			{{/if}}
+			{{/each}}
+				<p><a href="/questions/add-answer/{{questionid}}">Add Answer</a></p>
+			</div>
+			</div>
+		{{/each}}	
 		</div>
-		</div>
-	{{/each}}	
-	</div>
+
 	
 {{else}}
 	<p class="error">There is no posts to view.</p>
