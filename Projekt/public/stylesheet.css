@@ -12,12 +12,6 @@ body {
   background-color: white;
 }
 
-/*???????*/
-.cardforposts {
-  border: 1px solid red;
-  width: 20%;
-}
-
 .signout {
   float: right;
   margin-top: 10px;
@@ -395,7 +389,7 @@ img {
   align-items: center;
 }
 
-.login-form {
+.login-form, .other-form{
   width: 350px;
   margin: 0 auto;
   border: 2px solid;
