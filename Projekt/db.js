@@ -1,14 +1,8 @@
 
 const sqlite3 = require('sqlite3')
 const { search } = require('./routers/posts-Routers')
-
-
-
 const db = new sqlite3.Database("blog-database.db")
 
-
-
-//IF NOT EXIST, creates the the table if it is not in the database
 db.run(`
 	CREATE TABLE IF NOT EXISTS posts(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,7 +23,6 @@ db.run(`
 	)
 
 `)
-
 
 db.run(`
 	CREATE TABLE IF NOT EXISTS questions(
@@ -54,78 +47,66 @@ db.run(`
 
 `)
 
-
-
 exports.getAllPosts = function(callback){
-    const query = "SELECT * FROM posts"
-
+  const query = "SELECT * FROM posts"
 	db.all(query,function(error, posts){
         callback(error, posts)
     })
 }
 
 
-
 exports.getSpecificPost = function(callback){
-	
     const query = "SELECT * FROM posts WHERE id = ?"
     const values = [id]
-
     db.get(query, values, function(error, posts){
         callback(error, posts)
     })
 }
 
 exports.createPost = function(posttitle, postmessage, theDate , callback){
-    const query = "INSERT INTO posts (title, message, date) VALUES (?, ?,?)" 
+  const query = "INSERT INTO posts (title, message, date) VALUES (?, ?,?)" 
 	const values = [posttitle, postmessage, theDate]
-
 	db.run(query, values, function(error){
         callback(error)
     })
 }
 
 
-
 exports.getPostById = function(id, callback){
-    const query = "SELECT * FROM posts WHERE id=?"
-		const value =[id]
-		db.get(query, value, function(error, post){
-            callback(error , post)
-        })
+	const query = "SELECT * FROM posts WHERE id=?"
+	const value =[id]
+	db.get(query, value, function(error, post){
+    callback(error , post)
+  })
 }
-
-//exports.updateSpecificPost = function
 
 exports.getCommentById = function(id, callback){
-    const query = "SELECT * FROM comments WHERE id = ?"
-			const values = [id]
-			db.all(query, values, function(error, post){
-                callback(error, post)
-            })
+  const query = "SELECT * FROM comments WHERE id = ?"
+	const values = [id]
+	db.all(query, values, function(error, post){
+      callback(error, post)
+  })
 }
+
 exports.getCommentById2 = function(id, callback){
-    const query = "SELECT * FROM comments WHERE id = ?"
-			const values = [id]
-			db.all(query, values, function(error, post){
-                callback(error, post)
-            })
+  const query = "SELECT * FROM comments WHERE id = ?"
+	const values = [id]
+	db.all(query, values, function(error, post){
+    callback(error, post)
+  })
 }
 
 exports.deleteSpecificPost = function(id,callback){
 
-const query = 'DELETE FROM posts WHERE id = ?'
-		const values = [id]
-		db.run(query, values, function(error){
-			callback(error)
-		})
+	const query = 'DELETE FROM posts WHERE id = ?'
+	const values = [id]
+	db.run(query, values, function(error){
+		callback(error)
+	})
 }
-
-
 
 exports.getPostsByPage = function(callback){
 	const query = "SELECT COUNT(*) AS nb FROM posts" 
-	
 	db.get(query, function(error,post){
 		callback(error, post)
 	})
@@ -141,28 +122,17 @@ exports.getAmountOfPages = function(numberPerPage,offset,callback){
 
 exports.updateTheSpecifPost = function(newTitle, newMessage,id, callback){
 	const query = "Update posts SET title=?, message=? WHERE id=?";
-  	const values = [newTitle, newMessage, id];
+  const values = [newTitle, newMessage, id];
   db.run(query, values,function(error,post){
 	callback(error, post)
   })
 }
 
-
-exports.searchSpecificPost = function(searchTitle,callback){
-	const query = "SELECT * FROM posts WHERE title LIKE '%' || ? || '%'";
-	const value = [searchTitle];
-  
-	db.all(query, value,function(error,post){
-		callback(error,post)
-	})
-}
-
 exports.getCommentForSpecificPost = function(id, callback){
 	const query = "SELECT * FROM posts WHERE id=?";
-    const value = [id];
-    db.get(query, value, function(error,post){
+  const value = [id];
+  db.get(query, value, function(error,post){
 		callback(error,post)
-
 	})
 }
 
@@ -170,7 +140,6 @@ exports.getCommentForSpecificPost = function(id, callback){
 exports.updateTheComment = function(newComment, id, callback){
 	const query = "INSERT INTO comments (comment, id) VALUES (?,?)";
 	const values = [newComment, id];
-  
 	db.run(query, values, function(error,post){
 		callback(error,post)
 	})
@@ -180,7 +149,6 @@ exports.updateTheComment = function(newComment, id, callback){
 
 exports.getAllQuestions = function(callback){
 	const query = "SELECT * FROM questions";
-
 	db.all(query, function(error, questions){
 		callback(error,questions)
 	})
@@ -189,7 +157,6 @@ exports.getAllQuestions = function(callback){
 exports.getQuestionById = function(id, callback){
 	const query = `SELECT * FROM questions WHERE questionid = ?`;
 	const values = [id];
-  
 	db.get(query, values, function(error,questions){
 		callback(error,questions)
 	})
@@ -197,34 +164,32 @@ exports.getQuestionById = function(id, callback){
 
 exports.getQuestionById2 = function(id, callback){
 	const query = "SELECT * FROM questions WHERE questionid = ?";
-    const values = [id];
-  
-    db.get(query, values, function(error,question){
+  const values = [id];
+  db.get(query, values, function(error,question){
 		callback(error, question)
 	})
 }
 
 exports.getAnswersById = function(id, callback){
 	const query = "SELECT * FROM answers WHERE questionid = ?";
-      const values = [id];
-      db.all(query, values, function(error,question){
+  const values = [id];
+  db.all(query, values, function(error,question){
 		callback(error,question)
-	  })
+	})
 }
 
 
 exports.getAnswersByQuestionId = function(id,callback){
 	const query = "SELECT * FROM answers WHERE questionid = ?";
-    const values = [id];
-    db.all(query, values, function(error,answer){
+  const values = [id];
+  db.all(query, values, function(error,answer){
 		callback(error,answer)
 	})
 }
 
-exports.createQuestion = function (qName,qemail,qgrade,qtitle,callback){
+exports.createQuestion = function (qNAME,qEMAIL,qGRADE,qTITLE,callback){
 	const query = "INSERT INTO questions (name, email, websiteGRADE,questionTitle) VALUES (?, ?,?,?)";
-	const values = [qName, qemail, qgrade, qtitle];
-
+	const values = [qNAME, qEMAIL, qGRADE, qTITLE];
 	db.run(query, values, function(error){
 		callback(error)
 	})
@@ -234,7 +199,6 @@ exports.createQuestion = function (qName,qemail,qgrade,qtitle,callback){
 exports.deleteSpecificQuestion = function (id, callback){
 	const query = "DELETE FROM questions WHERE questionid = ?";
 	const values = [id];
-
 	db.run(query, values, function(error){
 		callback(error)
 	})
@@ -243,7 +207,6 @@ exports.deleteSpecificQuestion = function (id, callback){
 exports.updateQuestionByNewAnswer = function(newAnswer, id, callback){
 	const query = "INSERT INTO answers (answer, questionid) VALUES (?,?)";
 	const values = [newAnswer, id];
-  
 	db.run(query, values, function(error, question){
 		callback(error, question)
 	})

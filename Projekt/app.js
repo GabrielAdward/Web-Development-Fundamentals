@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express()
-
 const expressHandlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
 const { query, request, response } = require("express");
@@ -9,18 +8,9 @@ const bcrypt = require("bcrypt");
 const db = require("./db.js");
 const postsRouters = require("./routers/posts-Routers");
 const questionsRouters = require("./routers/question-Routers");
-
-
-const POST_TITLE_MAX_LENGTH = 30;
-const POST_MESSAGE_MAX_LENGTH = 300;
 const ADMIN_USERNAME = "Gabriel";
 const ADMIN_PASSWORD =
   "$2b$10$VlAVabTgjaVCHdOJMC3SXO9juUm.4dEHsa2XWk4pZJpS0vWl0pr1i";
-
-const numberPerPage = 2;
-
-let nextPostIndex = 2;
-
 
 app.use(
   expressSession({
@@ -31,7 +21,6 @@ app.use(
 );
 
 app.use(express.static("public"));
-
 app.use("/css", express.static(__dirname + "/node_modules/bootstrap/dist/css"));
 app.use("/js", express.static(__dirname + "/node_modules/bootstrap/dist/js"));
 
@@ -51,10 +40,8 @@ app.use(
 );
 
 app.use(function (request, response, next) {
-const isLoggedIn = request.session.isLoggedIn;
-
+	const isLoggedIn = request.session.isLoggedIn;
   response.locals.isLoggedIn = isLoggedIn;
-
   next();
 });
 
@@ -78,15 +65,10 @@ app.post("/login", (request, response) => {
   const entered_USERNAME = request.body.username;
   const entered_PASSWORD = request.body.password;
 
-  if (
-    entered_USERNAME == ADMIN_USERNAME &&
-    bcrypt.compareSync(entered_PASSWORD, ADMIN_PASSWORD)
-  ) {
-    //loggin
+  if (entered_USERNAME == ADMIN_USERNAME && bcrypt.compareSync(entered_PASSWORD, ADMIN_PASSWORD)){
     request.session.isLoggedIn = true;
     response.redirect("/");
-  } else {
-    //error message
+  }else{
     response.redirect("/posts");
   }
 });
@@ -95,7 +77,6 @@ app.post("/logout", function (request, response) {
   request.session.isLoggedIn = false;
   response.redirect("/login");
 });
-
 
 
 app.listen(8080);
