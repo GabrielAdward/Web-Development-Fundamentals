@@ -1,0 +1,57 @@
+
+{{#if dbError}}
+<p>Can't display</p>
+{{else}}
+
+{{#if posts.length}}
+
+<div class="wrap">
+		{{#each posts}}
+
+	<div class="login-form">
+				 <div class="form-header">
+      <h3>Post</h3>
+    </div>
+	<div class="form-group">
+		<h2><a href="/posts/{{id}}">{{title}}</a></h2>
+	</div>
+		<div class="form-group">
+
+		<p> {{message}}</p>
+		</div>
+		{{#each comments}}
+
+{{#if isLoggedIn}}
+
+		{{/if}}	
+		{{/each}}
+		
+			<p><a href="/posts/add-comments/{{id}}/{{../page}}">Add a comment</a></p>
+
+	</div>
+		</div>
+		{{/each}}
+</div>
+
+
+
+
+	
+
+
+
+<nav aria-label="Page navigation example" class="background">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="/posts?page={{prevPage}}">Previous</a></li>
+	{{#each arrayofPages}}
+    <li class="page-item"><a class="page-link" href="/posts?page={{p}}">{{p}}</a></li>
+	{{/each}}
+    <li class="page-item"><a class="page-link" href="/posts?page={{nextPage}}">Next</a></li>
+  </ul>
+</nav>
+
+
+{{else}}
+<p>There is no posts to view.</p>
+{{/if}}
+{{/if}}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<link rel="stylesheet" href="/stylesheet.css" />
+	<script src="/js/bootstrap.min.js"></script>
+
+	<title>Document</title>
+
+</head>
+
+<body>
+
+	<div class="header">
+		<div class="header-container">
+			<div class="header-row align-items-center justify-content-between">
+				<div class="logo">
+					<h3 class="title">FreedomOfSpeach</h3>
+				</div>
+				<input type="checkbox" id="nav-check">
+				<label for="nav-check" class="nav-toggler">
+					<span></span>
+				</label>
+				<nav class="nav">
+					<ul>
+						<li><a href="/" class="active">Home</a></li>
+						<li><a href="/posts">Posts</a></li>
+						{{#if isLoggedIn}}
+						<li><a href="/posts/create">Create</a></li>
+						{{/if}}
+						<li><a href="/about">About</a></li>
+						
+						{{#if isLoggedIn}}
+						<li><a href="/questions/create-question">CreateQ</a></li>
+						{{/if}}
+						<li><a href="/questions">question</a></li>
+						{{#unless isLoggedIn}}
+						<li><a href="/login">Login</a></li>
+						{{/unless}}
+						{{#if isLoggedIn}}
+						<form class="signout" action="/logout" method="POST">
+							<input type="submit" value="SignOut">
+						</form>
+						{{/if}}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+
+
+	<main>
+		{{{body}}}
+	</main>
+
+
+	<footer class="footer">
+		<div class="footer-container">
+			<div class="footer-row">
+				<div class="footer-col">
+					<h4>Useful Links </h4>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/posts">Posts</a></li>
+						<li><a href="/questions">Questions</a></li>
+						<li><a href="/about">About</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Posts</h4>
+					<ul>
+						<li><a href="/posts">Posts</a></li>
+
+						<li><a href="/posts/create">Create Post</a></li>
+
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Questions</h4>
+					<ul>
+						<li><a href="/questions">Questions</a></li>
+						<li><a href="/questions/create-question">Create Question</a></li>
+
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Follow Us</h4>
+					<div class="social-media">
+						<a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+						<a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+</body>
+
+</html>

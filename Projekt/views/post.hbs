@@ -1,0 +1,51 @@
+<div class="wrap">
+		<div class="login-form">
+				 <div class="form-header">
+      <h3>Selected Post</h3>
+    </div>
+	{{#if post}}
+	<div class="form-group">
+	<p>Title: {{post.title}}</p>
+	</div>
+	<div class="form-group">
+    <p>Message: {{post.message}}</p>
+	</div>
+	<div class="form-group">
+	<p>Id: {{post.id}}</p>
+</div>
+ <div class="form-header">
+
+		<p>Comments:</p>
+ </div>
+		{{#each comments}}
+		    <div class="form-group">
+
+			<p>{{comment}}</p>
+			</div>
+		{{/each}}
+{{#if isLoggedIn}}
+	<a href="/posts/update/{{post.id}}">Update</a>
+{{/if}}
+{{#if isLoggedIn}}
+	<form action="delete/{{post.id}}" method="POST">
+		<input type="hidden" name="title" value="{{post.title}}">
+		<input type="hidden" name="message" value="{{post.message}}">
+
+		<input type="submit" value="Delete">
+	</form>
+{{/if}}
+
+		</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+{{else}}
+	<p>No post with that id exist!</p>
+{{/if}}

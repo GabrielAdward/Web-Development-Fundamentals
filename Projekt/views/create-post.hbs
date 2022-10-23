@@ -1,0 +1,36 @@
+
+
+{{#if errorMessages.length}}
+	<p>Couldn't create the post because:</p>
+	<ul>
+		{{#each errorMessages}}
+			<li>{{this}}</li>
+		{{/each}}
+	</ul>
+{{/if}}
+
+
+
+
+
+<div class="wrap">
+  <form class="login-form" action="/posts/create/{{page}}" method="POST">
+    <div class="form-header">
+      <h3>Create Post</h3>
+    </div>
+    <!--Email Input-->
+    <div class="form-group">
+      <input class="form-input" type="text" name="title"  value="{{posttitle}}" placeholder="Enter Your Title Here!">
+    </div>
+    <!--Password Input-->
+    <div class="form-group">
+      <input class="form-input" type="text" name="message" value="{{postmessage}}" placeholder="Enter Your Message Here!">
+    </div>
+    <!--Login Button-->
+    <div class="form-group">
+      <input class="form-button"type="submit" value="Create">
+    </div>
+
+  </form>
+</div>
+<!--/.wrap-->

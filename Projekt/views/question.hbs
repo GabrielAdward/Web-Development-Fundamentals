@@ -1,0 +1,52 @@
+
+<div class="wrap">
+	<div class="login-form">
+		 <div class="form-header">
+      <h3>Selected Question</h3>
+    </div>
+{{#if question}}
+    <div class="form-group">
+<p>Name: {{question.name}}</p>
+	</div>
+    <div class="form-group">
+
+<p>email: {{question.email}}</p>
+	</div>
+    <div class="form-group">
+
+<p>Grade: {{question.websiteGRADE}}</p>
+	</div>
+    <div class="form-group">
+
+<p>Question: {{question.questionTITLE}}</p>
+	</div>
+    <div class="form-group">
+
+<p>Id: {{question.questionid}}</p>
+	</div>
+ <div class="form-header">
+    
+<h3>Answers:</p> 
+</div>
+{{#each answers}}
+    <div class="form-group">
+<p>{{answer}}</p>
+	</div>
+{{/each}}
+{{#if isLoggedIn}}
+
+<form action="delete-questions/{{question.questionid}}" method="POST">
+	<input type="submit" value="Delete">
+</form>
+{{/if}}
+</div>
+</div>
+
+
+
+
+
+
+{{else}}
+<p>No Question with that id exist!</p>
+{{/if}}

@@ -1,0 +1,23 @@
+{
+  "name": "gabrielprojects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriel",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.1",
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "express-sessions": "^1.0.6",
+    "spectre.css": "^0.5.9",
+    "sqlite3": "^5.1.1"
+  }
+}
