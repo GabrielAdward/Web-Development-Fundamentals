@@ -1,11 +1,7 @@
 <div class="about-section">
-  <h1>Add A Answer</h1>
+  <h1>Add a Answer</h1>
   <p>Create an answer by filling in the field below.</p>
 </div>
-
-
-
-
 
 {{#if errorMessages.length}}
 	<p>Couldn't create the post because:</p>
@@ -16,24 +12,18 @@
 	</ul>
 {{/if}}
 
-
-
-
 <div class="wrap">
-
-<form class="login-form" action="/questions/add-answer/{{question.questionid}}" method="POST">
- <div class="form-header">
+	<form class="other-form" action="/questions/add-answer/{{question.questionid}}" method="POST">
+ 		<div class="form-header">
       <h3>Add Answer</h3>
     </div>
-        <div class="form-group">
-
-            <input class="form-input" type="text" name="answer" value="{{newAnswer}}">
-        </div>
-        <div class="form-group">
-
-    <input class="form-button" type="submit" value="Answer">
-        </div>
-</form>
+    <div class="form-group">
+    	<input class="form-input" type="text" placeholder="Enter Your Answer Here" name="answer" value="{{newAnswer}}">
+    </div>
+    <div class="form-group">
+   	 	<input class="form-button" type="submit" value="Answer">
+  	</div>
+	</form>
 </div>
 
 

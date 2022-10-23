@@ -1,5 +1,5 @@
 <div class="about-section">
-  <h1>Create A Post</h1>
+  <h1>Create a Post</h1>
   <p>Create your post by filling in the fields below.</p>
 </div>
 
@@ -12,28 +12,19 @@
 	</ul>
 {{/if}}
 
-
-
-
-
 <div class="wrap">
-  <form class="login-form" action="/posts/create/{{page}}" method="POST">
+  <form class="other-form" action="/posts/create/{{page}}" method="POST">
     <div class="form-header">
       <h3>Create Post</h3>
     </div>
-    <!--Email Input-->
     <div class="form-group">
       <input class="form-input" type="text" name="title"  value="{{posttitle}}" placeholder="Enter Your Title Here!">
     </div>
-    <!--Password Input-->
     <div class="form-group">
       <input class="form-input" type="text" name="message" value="{{postmessage}}" placeholder="Enter Your Message Here!">
     </div>
-    <!--Login Button-->
     <div class="form-group">
       <input class="form-button"type="submit" value="Create">
     </div>
-
   </form>
 </div>
-<!--/.wrap-->

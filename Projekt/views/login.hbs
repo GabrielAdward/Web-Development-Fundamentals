@@ -3,15 +3,9 @@
   <p>Login by filling in the fields below.</p>
 </div>
 
-
-
-
 {{#if failedToLogin}}
-<p>Wrong Credentials!</p>
+	<p>Wrong Credentials!</p>
 {{/if}}
-
-
-
 
 <div class="wrap">
   <form class="login-form" action="/login" method="POST">
@@ -19,19 +13,14 @@
       <h3>Login Form</h3>
       <p>Login to access your dashboard</p>
     </div>
-    <!--Email Input-->
     <div class="form-group">
       <input type="text" class="form-input" placeholder="email@example.com" name="username">
     </div>
-    <!--Password Input-->
     <div class="form-group">
       <input type="password" class="form-input" placeholder="password" name="password">
     </div>
-    <!--Login Button-->
     <div class="form-group">
       <input class="form-button" type="submit" value="Login">
     </div>
-
   </form>
 </div>
-<!--/.wrap-->
