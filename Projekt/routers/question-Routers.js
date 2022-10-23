@@ -42,13 +42,13 @@ if(qName == ""){
 }
 
 if(qemail == ""){
-  errorMessages.push("Name can't be empty");
+  errorMessages.push("Email can't be empty");
 }else if(QUESTION_EMAIL_MAX_LENGTH < qemail.length){
   errorMessages.push("Email may be at most "+ QUESTION_EMAIL_MAX_LENGTH +" characters long")
 }
 
 if(qtitle == ""){
-  errorMessages.push("Name can't be empty");
+  errorMessages.push("Title can't be empty");
 }else if(QUESTION_TITLE_MAX_LENGTH < qtitle.length){
   errorMessages.push("Title may be at most "+ QUESTION_TITLE_MAX_LENGTH +" characters long")
 
