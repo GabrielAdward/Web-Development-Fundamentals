@@ -18,7 +18,6 @@ body {
   width: 20%;
 }
 
-/*Header Begins*/
 .signout {
   float: right;
   margin-top: 10px;
@@ -173,9 +172,6 @@ ul {
     transform: rotate(-45deg);
   }
 }
-/*Header Ends*/
-
-/*About*/
 
 .about-section {
   padding: 50px;
@@ -197,7 +193,6 @@ img {
   max-width: 100%;
 }
 
-/* team section */
 .team {
   min-height: 100vh;
   background-color: #f5ebeb;
@@ -300,7 +295,6 @@ img {
   }
 }
 
-/*Home*/
 
 #button-modal {
   margin: 0 auto;
@@ -372,53 +366,19 @@ img {
   height: 100px;
 }
 
-.testimonial {
-  padding-top: 100px;
+.image-1 .image-2 .image-3{
+	width:300px;
+	 height:300px;
 }
 
-.testimonial .col-3 {
-  text-align: center;
-  padding: 40px 20px;
-  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: transform 0.5s;
-}
-
-.testimonial .col-3 img {
-  width: 50px;
-  margin-top: 20px;
-  border-radius: 50%;
-}
-
-.testimonial .col-3:hover {
-  transform: translateY(-10px);
-}
-
-.fa .fa-quote-left {
-  font-size: 34px;
-  color: #ff523b;
-}
-
-.col-3 p {
-  font-size: 12px;
-  margin: 12px 0;
-  color: white;
-}
-
-.testimonial .col-3 h3 {
-  font-weight: 600;
-  color: white;
-  font-size: 16px;
-}
-/*login*/
 .wrap {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background: grey;*/
 }
+
 .login-form {
   width: 350px;
   margin: 0 auto;
@@ -454,7 +414,6 @@ img {
   margin-bottom: 2rem;
 }
 
-/*Footer Begin*/
 
 .footer {
   background-color: black;
@@ -546,7 +505,6 @@ img {
   }
 }
 
-/*Footer ends*/
 
 .background {
   margin-left: 42%;
